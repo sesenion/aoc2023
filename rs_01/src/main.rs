@@ -2,6 +2,10 @@ use lazy_static::lazy_static;
 use regex::Regex;
 use std::fs;
 
+lazy_static! {
+    static ref DIGIT_AT_START: Regex = Regex::new(r"^(\d).*?").unwrap();
+}
+
 fn read_input() -> Vec<String> {
     fs::read_to_string("../inputs/input01.txt")
         .expect("File Error")
@@ -12,9 +16,6 @@ fn read_input() -> Vec<String> {
 }
 
 fn parse_digits(substring: &str, parse_words: bool) -> &str {
-    lazy_static! {
-        static ref DIGIT_AT_START: Regex = Regex::new(r"^(\d).*?").unwrap();
-    }
     if DIGIT_AT_START.is_match(substring) {
         return &substring[0..1];
     }
