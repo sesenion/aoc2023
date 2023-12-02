@@ -1,4 +1,8 @@
-with open("input.txt", "r", encoding="utf-8") as file:
+from pathlib import Path
+
+inputfolder = Path(__file__).parent.parent / "inputs"
+
+with open(inputfolder / "input01.txt", "r", encoding="utf-8") as file:
     input_lines = [line.strip() for line in file.readlines()]
 
 
