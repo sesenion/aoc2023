@@ -1,7 +1,4 @@
-from dataclasses import dataclass
-from enum import Enum
 from pathlib import Path
-import re
 from typing import Self
 
 inputfolder = Path(__file__).parent.parent / "inputs"
